@@ -1,1 +1,1 @@
-export * from './sumo-project';
+export * from './vscode';

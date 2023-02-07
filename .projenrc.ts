@@ -1,11 +1,12 @@
-const { typescript } = require('projen');
-const { VsCode, VsCodeSettings, VsCodeRecommendedExtensions } = require('projen/lib/vscode');
+import { JsiiProject } from 'projen/lib/cdk';
+import { NodePackageManager } from 'projen/lib/javascript';
+import { VsCodeConfiguration } from './src/vscode';
 
 const authorName = 'Cameron Childress';
 const authorAddress = 'cameronc@sumoc.com';
 const repository = 'https://github.com/sumoinc/projen-lib';
 
-const project = new typescript.TypeScriptProject({
+const project = new JsiiProject({
   defaultReleaseBranch: 'main',
   name: '@sumoc/projen-lib',
   description: 'A library of projen configurations.',
@@ -21,21 +22,10 @@ const project = new typescript.TypeScriptProject({
   releaseToNpm: true,
   deps: ['projen'],
   projenrcTs: true,
+  packageManager: NodePackageManager.PNPM,
 });
 
-const vscode = new VsCode(project);
-
-const vsSettings = new VsCodeSettings(vscode);
-vsSettings.addSetting('editor.tabSize', 2);
-vsSettings.addSetting('editor.bracketPairColorization.enabled', true);
-vsSettings.addSetting('editor.guides.bracketPairs', 'active');
-vsSettings.addSetting('editor.rulers', [80, 120]);
-vsSettings.addSetting('editor.codeActionsOnSave', { 'source.fixAll.eslint': true });
-vsSettings.addSetting('editor.formatOnSave', false);
-vsSettings.addSetting('editor.formatOnSave', true, 'typescript');
-vsSettings.addSetting('editor.defaultFormatter', 'dbaeumer.vscode-eslint', 'typescript');
-
-const vsExtensions = new VsCodeRecommendedExtensions(vscode);
-vsExtensions.addRecommendations('dbaeumer.vscode-eslint');
+// component configuration
+new VsCodeConfiguration(project);
 
 project.synth();

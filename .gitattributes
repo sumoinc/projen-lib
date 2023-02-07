@@ -17,8 +17,8 @@
 /.projen/tasks.json linguist-generated
 /.vscode/extensions.json linguist-generated
 /.vscode/settings.json linguist-generated
+/API.md linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/pnpm-lock.yaml linguist-generated
 /tsconfig.dev.json linguist-generated
-/tsconfig.json linguist-generated
-/yarn.lock linguist-generated
