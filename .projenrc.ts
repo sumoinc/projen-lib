@@ -20,6 +20,7 @@ const project = new typescript.TypeScriptProject({
   authorEmail: authorAddress,
   releaseToNpm: true,
   deps: ['projen'],
+  projenrcTs: true,
 });
 
 const vscode = new VsCode(project);
