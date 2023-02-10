@@ -32,4 +32,5 @@ const project = new JsiiProject({
 // component configuration
 new VsCodeConfiguration(project);
 
+// generate
 project.synth();
