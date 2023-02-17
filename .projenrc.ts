@@ -26,7 +26,7 @@ const project = new JsiiProject({
 
   // autoapproval of auto update PRs
   autoApproveUpgrades: true,
-  autoApproveOptions: { allowedUsernames: ['cdklabs-automation'] },
+  autoApproveOptions: { allowedUsernames: ['sumoc-automations'] },
 });
 
 // component configuration
